@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 
 import argparse
-import connexion
+import functools
+import operator
 import os
-import yaml
+
+import connexion
 from flask import send_from_directory, redirect
 from flask_cors import CORS
 
@@ -31,15 +33,24 @@ def get_all_projects():
     return res
 
 
+def calculate_fake_percent(res, fake_thres=0.35):
+    total_no_words = len(res['bpe_strings'])
+    pred_topk = res['pred_topk']
+    pred_topk = functools.reduce(operator.iconcat, pred_topk, [])
+    return round(sum([True if val >= fake_thres else False for word, val in pred_topk]) / total_no_words * 100, 2)
+
+
 def analyze(analyze_request):
     project = analyze_request.get('project')
     text = analyze_request.get('text')
 
     res = {}
     if project in projects:
-        p = projects[project] # type: Project
+        p = projects[project]  # type: Project
         res = p.lm.check_probabilities(text, topk=20)
 
+    res['percent'] = calculate_fake_percent(res)
+    print("Percent Fake:", res['percent'])
     return {
         "request": {'project': project, 'text': text},
         "result": res

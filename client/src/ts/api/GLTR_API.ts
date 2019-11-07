@@ -38,7 +38,8 @@ export class GLTR_API {
             payload['bitmask'] = bitmask;
         }
 
-        return d3.json(this.baseURL + '/api/analyze', {
+        // return d3.json(this.baseURL + '/api/analyze', {
+        return d3.json('http://localhost:5001/api/analyze', {
             method: "POST",
             body: JSON.stringify(payload),
             headers: {
