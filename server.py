@@ -42,7 +42,7 @@ def calculate_fake_percent(res, fake_thres=0.35):
 
 def analyze(analyze_request):
     project = analyze_request.get('project')
-    text = analyze_request.get('text')
+    text = analyze_request.get('text').encode('utf-8')
 
     res = {}
     if project in projects:
@@ -52,8 +52,7 @@ def analyze(analyze_request):
     res['percent'] = calculate_fake_percent(res)
     print("Percent Fake:", res['percent'])
     return {
-        "request": {'project': project, 'text': text},
-        "result": res
+        "request": {'project': project, 'text': text, "result": res},
     }
 
 
