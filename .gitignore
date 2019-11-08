@@ -1,3 +1,4 @@
 __pycache__
 client/src/.cache-loader
 node_modules
+.idea
