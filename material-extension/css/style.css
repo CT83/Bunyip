@@ -31,55 +31,53 @@ body {
 }
  /************************/
 
-div.seolist img {
-    vertical-align: middle;
-    /*middle/sub*/
-    margin-right: 8px;
-    width: 16px;
-    height: 16px
-}
-div.seolist {
-  text-transform: capitalize;
-}
+/*div.seolist img {*/
+/*    vertical-align: middle;*/
+/*    !*middle/sub*!*/
+/*    margin-right: 8px;*/
+/*    width: 16px;*/
+/*    height: 16px*/
+/*}*/
+/*div.seolist {*/
+/*  text-transform: capitalize;*/
+/*}*/
 
-nav {
-    height: 52px !important;
-    line-height: 52px !important;
-}
-nav .brand-logo {
-    font-size: 1.6rem;
-}
-.tabs .tab a {
-    color: #1565c0 !important;
-}
-/* OVERWRITE COLLECTION &? MEDIA QUERIES */
+/*nav {*/
+/*    height: 52px !important;*/
+/*    line-height: 52px !important;*/
+/*}*/
+/*nav .brand-logo {*/
+/*    font-size: 1.6rem;*/
+/*}*/
+/*.tabs .tab a {*/
+/* }*/
+/*!* OVERWRITE COLLECTION &? MEDIA QUERIES *!*/
 
-.tabs .tab a {
-    color: #1565c0 !important;
-}
-.tabs .tab a:focus, .tabs .tab a:focus.active, .collection .collection-item:not(.active):hover {
-    background-color: rgba(21, 101, 192, .08) !important;
-}
+/*.tabs .tab a {*/
+/* }*/
+/*.tabs .tab a:focus, .tabs .tab a:focus.active, .collection .collection-item:not(.active):hover {*/
+/*    background-color: rgba(21, 101, 192, .08) !important;*/
+/*}*/
 
-.collection .collection-item {
-  padding: 8px 20px!important;
-  line-height: 1.2rem!important;
-  font-size: 15px !important;
-}
-.noMargin, .noPadding {
-    padding: 0 !important;
-    margin: 0 !important;
-}
+/*.collection .collection-item {*/
+/*  padding: 8px 20px!important;*/
+/*  line-height: 1.2rem!important;*/
+/*  font-size: 15px !important;*/
+/*}*/
+/*.noMargin, .noPadding {*/
+/*    padding: 0 !important;*/
+/*    margin: 0 !important;*/
+/*}*/
 .collection.noBorder {
     border-top-color: #fff!important;
     border-left-color: #fff!important;
     border-right-color: #fff!important;
 }
-/* TAB COLOR */
-.tabs .indicator {
-    background-color: #2196f3;
-}
+/*!* TAB COLOR *!*/
+/*.tabs .indicator {*/
 
-html {
-    font-size: 16px !important;
-}
+/*}*/
+
+/*html {*/
+/*    font-size: 16px !important;*/
+/*}*/
