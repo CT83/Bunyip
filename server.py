@@ -4,6 +4,7 @@ import argparse
 import functools
 import operator
 import os
+import re
 
 import connexion
 from flask import send_from_directory, redirect
@@ -42,7 +43,8 @@ def calculate_fake_percent(res, fake_thres=0.35):
 
 def analyze(analyze_request):
     project = analyze_request.get('project')
-    text = str(analyze_request.get('text').encode('utf-8'))
+    text = analyze_request.get('text')
+    text = re.sub(r'([^\s\w]|_)+', '', text)
 
     res = {}
     if project in projects:
@@ -50,7 +52,6 @@ def analyze(analyze_request):
         res = p.lm.check_probabilities(text, topk=20)
 
     res['percent'] = calculate_fake_percent(res)
-    print("Result", res)
     print("Percent Fake:", res['percent'])
     return {
         "request": {'project': project, 'text': text, "result": res},
@@ -84,47 +85,6 @@ def send_data(path):
     """
     print('Got the data route for', path)
     return send_from_directory(args.dir, path)
-
-
-# @app.route('/')
-# def redirect_home():
-#     return redirect('/client/index.html', code=302)
-
-
-# def load_projects(directory):
-#     """
-#     searches for CONFIG_FILE_NAME in all subdirectories of directory
-#     and creates data handlers for all of them
-#
-#     :param directory: scan directory
-#     :return: null
-#     """
-#     project_dirs = []
-#     for root, dirs, files in walklevel(directory, level=2):
-#         if CONFIG_FILE_NAME in files:
-#             project_dirs.append(root)
-#
-#     i = 0
-#     for p_dir in project_dirs:
-#         with open(os.path.join(p_dir, CONFIG_FILE_NAME), 'r') as yf:
-#             config = yaml.load(yf)
-#             dh_id = os.path.split(p_dir)[1]
-#             projects[dh_id] = Project(config=config, project_dir=p_dir,
-#                                       path_url='data/' + os.path.relpath(p_dir,
-#                                                                          directory))
-#         i += 1
-#
-#
-# # https://stackoverflow.com/a/234329/265298
-# def walklevel(some_dir, level=1):
-#     some_dir = some_dir.rstrip(os.path.sep)
-#     assert os.path.isdir(some_dir)
-#     num_sep = some_dir.count(os.path.sep)
-#     for root, dirs, files in os.walk(some_dir):
-#         yield root, dirs, files
-#         num_sep_this = root.count(os.path.sep)
-#         if num_sep + level <= num_sep_this:
-#             del dirs[:]
 
 
 app.add_api('server.yaml')
