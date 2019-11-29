@@ -10,6 +10,9 @@ $(document).ready(function () {
             selected_text = selection[0];
 
             if (selected_text.length > 0) {
+                document.getElementById("res-card").style.visibility = "visible";
+                document.getElementById("info-card").remove();
+
                 fetch('http://localhost:5001/api/analyze', {
                     method: "POST",
                     body: JSON.stringify({
@@ -44,7 +47,7 @@ $(document).ready(function () {
                         });
 
                     })
-            }else{
+            } else {
 
             }
         });
