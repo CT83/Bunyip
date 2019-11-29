@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>My Test Extension Options</title>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/materialize.min.js"></script>
+
+  <link rel="stylesheet" href="css/materialize.min.css">
+  <link rel="stylesheet" href="css/options.css">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+<html>
+
+<body>
+
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">My Extension Options</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="http://materializecss.com/sass.html" target="_blank">Sass</a></li>
+        <li><a href="http://materializecss.com/badges.html" target="_blank">Components</a></li>
+        <li><a href="http://materializecss.com/collapsible.html" target="_blank">JavaScript</a></li>
+        <li><a href="https://github.com/onigetoc/Materialize-CSS-Chrome-Extension-template" target="_blank">Materialize Chrome extension on Github</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+ <!--  OPTION SOULD ALL HAVE NAME AND VALUE FOR CHECKBOX AND RADIO TO WORK. SEE DEMO -->
+
+  <div class="row container-full">
+
+    <form id="optionform" class="col s6">
+
+      <!-- INPUT -->
+      <!--      <div class="input-field col s4">-->
+      
+      <label>Checkbox options</label>
+      
+      <div class="input-field">
+        <p>
+          <label>
+            <input type="checkbox" name="red" value="red" />
+            <span>Red</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="checkbox" name="yellow" value="yellow" checked="checked" />
+            <span>Yellow</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="checkbox" name="filledin" value="filledin" class="filled-in" checked="checked" />
+            <span>Filled in</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input id="indeterminate-checkbox" name="IndeterminateStyle" value="IndeterminateStyle" type="checkbox" />
+            <span>Indeterminate Style</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="checkbox" checked="checked" disabled="disabled" value="Green" />
+            <span>Green</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="checkbox" disabled="disabled" value="disabled" />
+            <span>Brown</span>
+          </label>
+        </p>
+
+      </div>
+
+      <!-- SELECT -->
+      <br>
+
+      <div class="input-field">
+        <select name="optionselect" id="color">
+          <!--          <option value="" disabled >Choose your option</option>-->
+          <option value="" disabled selected>Choose your option</option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
+      <label>Options Select</label>
+
+      </div>
+
+      <!-- RADIO -->
+
+      <!--
+      <p>
+        <label>
+          <input class="with-gap" name="group3" type="radio" checked />
+          <span>Red</span>
+        </label>
+      </p>
+-->
+      <div class="row">
+
+        <label>Radio Choose Color</label>
+        
+        <div class="input-field">
+          <p>
+            <label>
+              <input name="groupradio" type="radio" value="Red" checked />
+              <span>Red</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="groupradio" type="radio" value="Yellow" />
+              <span>Yellow</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input class="with-gap" name="groupradio" type="radio" value="Green" />
+              <span>Green</span>
+            </label>
+          </p>
+        </div>
+      </div>
+
+      <!-- FORM TEXT INPUT -->
+
+      <div class="row">
+        
+        
+        <div class="input-field col s6">
+          <input name="first_name" placeholder="Placeholder" id="first_name" type="text" class="validate">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input name="last_name" id="last_name" type="text" class="validate">
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input name="username" id="username" type="text" class="validate">
+          <label for="username">User Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input name="password" id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input name="email" id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+
+
+      <button id="reset" class="btn waves-effect waves-light grey" type="button" name="reset">Reset
+        <i class="material-icons right">clear_all</i>
+      </button>
+      
+      <span id="status"></span>
+
+      <button id="save" class="btn waves-effect waves-light" type="submit" name="action">Save
+        <i class="material-icons right">send</i>
+      </button>
+
+
+
+    </form>
+
+  </div>
+
+
+  <script src="js/options.js"></script>
+<!--  <script src="js/options-BACK-BEFORE-JSONIFY-AND-AUTOSAVE.js"></script>-->
+
+</body>
+
+</html>
