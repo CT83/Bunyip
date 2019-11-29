@@ -177,9 +177,9 @@ class LM(AbstractLanguageChecker):
         token = "'" if token.startswith('Ļ') else token
 
         if with_space:
-            token = '\u0120' + token
+            token = '' + token
         if with_break:
-            token = '\u010A' + token
+            token = '\n' + token
 
         return token
 
