@@ -23,8 +23,8 @@ chrome.tabs.getSelected(null, function (tab) {
                     console.log(data);
                     document.getElementById("res-block").innerHTML = "";
                     data.request.result.bpe_strings[0] = "";
-                    data.request.result.bpe_strings[1] = "";
-                    data.request.result.bpe_strings[2] = "";
+                    // data.request.result.bpe_strings[1] = "";
+                    // data.request.result.bpe_strings[2] = "";
                     data.request.result.bpe_strings.forEach(function (value, i) {
 
                         var topk = data.request.result.real_topk[i][0];
