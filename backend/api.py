@@ -1,9 +1,10 @@
-import numpy as np
-import torch
 import time
 
+import numpy as np
+import torch
 from pytorch_pretrained_bert import (GPT2LMHeadModel, GPT2Tokenizer,
                                      BertTokenizer, BertForMaskedLM)
+
 from .class_register import register_api
 
 
@@ -180,7 +181,10 @@ class LM(AbstractLanguageChecker):
             token = '' + token
         if with_break:
             token = '\n' + token
-
+        if token == '\\':
+            token = ""
+        if token == 'n':
+            token = ""
         return token
 
 
