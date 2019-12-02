@@ -44,7 +44,8 @@ def calculate_fake_percent(res, fake_thres=0.35):
 def analyze(analyze_request):
     project = analyze_request.get('project')
     text = analyze_request.get('text')
-    text = re.sub(r'\b(?:(?:https?|ftp)://)?\w[\w-]*(?:\.[\w-]+)+\S*', ' ', text)
+    # text = re.sub(r'\b(?:(?:https?|ftp)://)?\w[\w-]*(?:\.[\w-]+)+\S*“”', ' ', text)
+    text = re.sub(r'\W+', ' ', text)
 
     res = {}
     if project in projects:

@@ -23,7 +23,9 @@ $(document).ready(function () {
                         "Content-type": "application/json; charset=UTF-8"
                     }
                 })
-                    .then(response => response.json())
+                    .then(response => response.json()).catch(function () {
+                    document.getElementById("res-block").innerHTML = "Error! 😕 Something went wrong, try selecting some other text and try again. ";
+                })
                     .then(function (data) {
                         console.log(data);
                         document.getElementById("res-block").innerHTML = "";
