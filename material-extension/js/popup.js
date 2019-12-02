@@ -11,6 +11,7 @@ $(document).ready(function () {
 
             if (selected_text.length > 0) {
                 document.getElementById("res-card").style.visibility = "visible";
+                document.getElementById("res-card").style.display = "block";
                 document.getElementById("info-card").remove();
 
                 fetch('http://localhost:5001/api/analyze', {
