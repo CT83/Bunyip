@@ -7,6 +7,9 @@ $(document).ready(function () {
         chrome.tabs.executeScript({
             code: "window.getSelection().toString();"
         }, function (selection) {
+            if (selection == null) {
+                return;
+            }
             selected_text = selection[0];
 
             if (selected_text.length > 0) {
@@ -29,6 +32,8 @@ $(document).ready(function () {
                 })
                     .then(function (data) {
                         console.log(data);
+                        document.getElementById("legend-card").style.visibility = "visible";
+                        document.getElementById("legend-card").style.display = "block";
                         document.getElementById("res-block").innerHTML = "";
                         data.request.result.bpe_strings[0] = "";
                         data.request.result.bpe_strings.forEach(function (value, i) {

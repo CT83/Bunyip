@@ -1,4 +1,3 @@
-<!doctype html>
 <html>
 <head>
     <!-- Title -->
@@ -25,7 +24,11 @@
 
     <nav class="pink">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo center">Bunyip</a>
+            <a href="#Main" class="logo">
+                <img src="img/48.png">
+            </a>
+            <a href="#" class="brand-logo center">
+                Bunyip</a>
         </div>
     </nav>
 </div>
@@ -38,11 +41,25 @@
             automatically
             generated text </p>
 
-        <div class="card-panel" id="info-card" style="visibility: visible">
+        <div class="card-panel" id="legend-card" style="visibility: hidden;  display: none;">
+            <p style="font-size: medium"> Here, the colors indicate the probability of that word being predicted by an
+                AI, if it were to write the text.</p>
+
+            <ul style="list-style-type:none;">
+                <li style="background-color:#ADFF80 ">Very Likely</li>
+                <li style="background-color:#FFEA80 ">Less Likely</li>
+                <li style="background-color:#FF9280 ">Unlikely</li>
+                <li style="background-color:#E5B0FF ">Very Unlikely</li>
+
+            </ul>
+        </div>
+
+        <div class="card-panel" id="info-card" style="visibility: visible; padding-top: 5px">
             <p style="font-size: large"> Select some text and then click 🦄 to get started!</p>
         </div>
 
-        <div class="card-panel" id="res-card" style="visibility: hidden;  display: none;">
+        <div class="card-panel" id="res-card" style="visibility: hidden;  display: none; padding-top: 5px;">
+            <p style="font-size: medium"> Prediction</p>
             <div id="res-block">Detecting...
                 <div class="progress">
                     <div class="indeterminate"></div>
