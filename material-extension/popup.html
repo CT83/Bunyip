@@ -38,12 +38,26 @@
     <div class="row noMargin noPadding">
 
         <p style="font-size: medium">Bunyip, allows you to detect if the text generated the by OpenAI's GPT-2 model.</p>
-        <p>Under the hood it uses a modified version of <a href="http://gltr.io/">GLTR</a>- tool to detect
-            automatically
-            generated text </p>
+        <p>Under the hood it uses a modified version of <a href="http://gltr.io/">GLTR</a> and the<a href="https://huggingface.co/openai-detector">Hugging Face - GPT Detector</a>  to detect
+            GPT
+            generated text. </p>
+
+        <div class="card-panel" id="info-card" style="visibility: visible; padding-top: 5px">
+            <p style="font-size: large"> Select some text and then click 🦄 to get started!</p>
+        </div>
+
+        <div class="card-panel" id="res-card" style="visibility: hidden;  display: none; padding-top: 5px;">
+            <p style="font-size: medium"> Prediction</p>
+            <p>I am <b><span id="fake-prob">...</span>%</b> sure this text is fake.</p>
+            <div id="res-block">Detecting...
+                <div class="progress">
+                    <div class="indeterminate"></div>
+                </div>
+            </div>
+        </div>
 
         <div class="card-panel" id="legend-card" style="visibility: hidden;  display: none;">
-            <p style="font-size: medium"> Here, the colors indicate the probability of that word being predicted by an
+            <p style="font-size: small"> Here, the colors indicate the probability of that word being predicted by an
                 AI, if it were to write the text.</p>
 
             <ul style="list-style-type:none;">
@@ -55,18 +69,6 @@
             </ul>
         </div>
 
-        <div class="card-panel" id="info-card" style="visibility: visible; padding-top: 5px">
-            <p style="font-size: large"> Select some text and then click 🦄 to get started!</p>
-        </div>
-
-        <div class="card-panel" id="res-card" style="visibility: hidden;  display: none; padding-top: 5px;">
-            <p style="font-size: medium"> Prediction</p>
-            <div id="res-block">Detecting...
-                <div class="progress">
-                    <div class="indeterminate"></div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 

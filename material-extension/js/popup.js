@@ -17,6 +17,13 @@ $(document).ready(function () {
                 document.getElementById("res-card").style.display = "block";
                 document.getElementById("info-card").remove();
 
+                var url = "https://huggingface.co/openai-detector/?" + selected_text;
+                fetch(url)
+                    .then((resp) => resp.json()) // Transform the data into json
+                    .then(function (data) {
+                        document.getElementById("fake-prob").innerHTML = data.fake_probability.toFixed(2);
+                    });
+
 
                 var input = {"text": selected_text};
                 Algorithmia.client("simZZr/+14xD1noBWW+qmocVRI31")
