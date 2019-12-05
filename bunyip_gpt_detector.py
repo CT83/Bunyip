@@ -357,7 +357,6 @@ class BERTLM(AbstractLanguageChecker):
 
 def apply(input):
     text = input.get('text')
-    # text = re.sub(r'\b(?:(?:https?|ftp)://)?\w[\w-]*(?:\.[\w-]+)+\S*“”', ' ', text)
     text = re.sub(r'\W+', ' ', text)
     res = LM().check_probabilities(text, topk=20)
-    return {'text': text, "result": res}
+    return {"result": res}
