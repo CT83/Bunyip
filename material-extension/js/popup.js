@@ -11,6 +11,7 @@ $(document).ready(function () {
                 return;
             }
             selected_text = selection[0];
+            selected_text = selected_text.replace(/[^a-zA-Z0-9 ]/g, "");
 
             if (selected_text.length > 0) {
                 document.getElementById("res-card").style.visibility = "visible";
@@ -47,7 +48,7 @@ $(document).ready(function () {
                             color = "#FF9280";
                         }
 
-
+                        value = value.replace("Ġ", "");
                         span_block = `<span style="background-color: ${color};">${value} </span>`;
                         document.getElementById("res-block").innerHTML += span_block
                         document.getElementById("res-block").innerHTML.replace("\xc2\xa0", " ")

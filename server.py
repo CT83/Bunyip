@@ -349,6 +349,11 @@ def analyze():
     res = LM().check_probabilities(text, topk=20)
     res['percent'] = 0
     print("Percent Fake:", res['percent'])
+    new_bpe = []
+    for s in res['bpe_strings']:
+        new_bpe.append(s.replace("Ġ", ''))
+    res['nbpe_strings'] = new_bpe
+    print(res)
     return jsonify({
         "request": {'text': text, "result": res},
     })

@@ -360,9 +360,4 @@ def apply(input):
     # text = re.sub(r'\b(?:(?:https?|ftp)://)?\w[\w-]*(?:\.[\w-]+)+\S*“”', ' ', text)
     text = re.sub(r'\W+', ' ', text)
     res = LM().check_probabilities(text, topk=20)
-    res['percent'] = 0
-    print("Percent Fake:", text)
-    for s in res['bpe_strings']:
-        if s[0] == "Ġ":
-            s[0] = ""
     return {'text': text, "result": res}
