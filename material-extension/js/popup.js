@@ -25,19 +25,23 @@ $(document).ready(function () {
                         document.getElementById("fake-prob").innerHTML = data.fake_probability.toFixed(2);
                     });
 
-
-                var input = {"text": selected_text};
-                Algorithmia.client("simZZr/+14xD1noBWW+qmocVRI31")
-                    .algo("ct83/bunyip_gpt_detector/1.0.0?timeout=300") // timeout is optional
-                    .pipe(input).then(function (output) {
+                var proxy_url = "https://us-central1-bunyip.cloudfunctions.net/function-1";
+                // var proxy_url = "http://localhost:5000/predict";
+                fetch(proxy_url, {
+                    method: 'post',
+                    mode: 'no-cors',
+                    body: JSON.stringify({text: selected_text})
+                }).then(function (response) {
+                    return response.json();
+                }).then(function (output) {
                     console.log(output);
                     document.getElementById("legend-card").style.visibility = "visible";
                     document.getElementById("legend-card").style.display = "block";
                     document.getElementById("res-block").innerHTML = "";
-                    output.result.request.result.bpe_strings[0] = "";
-                    output.result.request.result.bpe_strings.forEach(function (value, i) {
+                    output.result.bpe_strings[0] = "";
+                    output.result.bpe_strings.forEach(function (value, i) {
 
-                        var topk = output.result.request.result.real_topk[i][0];
+                        var topk = output.result.real_topk[i][0];
                         var color = "#E5B0FF";
                         if (topk >= 0 && topk <= 10) {
                             color = "#ADFF80";
@@ -53,6 +57,7 @@ $(document).ready(function () {
                         document.getElementById("res-block").innerHTML.replace("\xc2\xa0", " ")
                     });
                 });
+
 
             } else {
 
