@@ -17,44 +17,50 @@ $(document).ready(function () {
                 document.getElementById("res-card").style.display = "block";
                 document.getElementById("info-card").remove();
 
-                fetch('http://localhost:5001/api/analyze', {
-                    method: "POST",
-                    body: JSON.stringify({
-                        project: "gpt-2-small",
-                        text: selected_text
-                    }),
-                    headers: {
-                        "Content-type": "application/json; charset=UTF-8"
-                    }
-                })
-                    .then(response => response.json()).catch(function () {
-                    document.getElementById("res-block").innerHTML = "Error! 😕 Something went wrong, try selecting some other text and try again. ";
-                })
-                    .then(function (data) {
-                        console.log(data);
-                        document.getElementById("legend-card").style.visibility = "visible";
-                        document.getElementById("legend-card").style.display = "block";
-                        document.getElementById("res-block").innerHTML = "";
-                        data.request.result.bpe_strings[0] = "";
-                        data.request.result.bpe_strings.forEach(function (value, i) {
 
-                            var topk = data.request.result.real_topk[i][0];
-                            var color = "#E5B0FF";
-                            if (topk >= 0 && topk <= 10) {
-                                color = "#ADFF80";
-                            } else if (topk > 10 && topk <= 100) {
-                                color = "#FFEA80";
-                            } else if (topk > 100 && topk <= 1000) {
-                                color = "#FF9280";
-                            }
+                var input = {"text": selected_text};
+                Algorithmia.client("simZZr/+14xD1noBWW+qmocVRI31")
+                    .algo("ct83/bunyip_gpt_detector/1.0.0?timeout=300") // timeout is optional
+                    .pipe(input).then(function (output) {
+                    console.log(output);
+                    console.log(output.result.request.result);
+                    document.getElementById("legend-card").style.visibility = "visible";
+                    document.getElementById("legend-card").style.display = "block";
+                    document.getElementById("res-block").innerHTML = "";
+                    output.result.request.result.bpe_strings[0] = "";
+                    output.result.request.result.bpe_strings.forEach(function (value, i) {
+
+                        var topk = output.result.request.result.real_topk[i][0];
+                        var color = "#E5B0FF";
+                        if (topk >= 0 && topk <= 10) {
+                            color = "#ADFF80";
+                        } else if (topk > 10 && topk <= 100) {
+                            color = "#FFEA80";
+                        } else if (topk > 100 && topk <= 1000) {
+                            color = "#FF9280";
+                        }
 
 
-                            span_block = `<span style="background-color: ${color};">${value} </span>`;
-                            document.getElementById("res-block").innerHTML += span_block
-                            document.getElementById("res-block").innerHTML.replace("\xc2\xa0", " ")
-                        });
+                        span_block = `<span style="background-color: ${color};">${value} </span>`;
+                        document.getElementById("res-block").innerHTML += span_block
+                        document.getElementById("res-block").innerHTML.replace("\xc2\xa0", " ")
+                    });
+                });
 
-                    })
+
+                // fetch('http://34.206.181.247:49153/api/analyze', {
+                //
+                //
+                //     method: "POST",
+                //     body: JSON.stringify({
+                //         project: "gpt-2-small",
+                //         text: selected_text
+                //     }),
+                //     headers: {
+                //         "Content-type": "application/json; charset=UTF-8"
+                //     }
+                // })
+
             } else {
 
             }
