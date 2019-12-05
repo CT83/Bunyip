@@ -31,7 +31,6 @@ $(document).ready(function () {
                     .algo("ct83/bunyip_gpt_detector/1.0.0?timeout=300") // timeout is optional
                     .pipe(input).then(function (output) {
                     console.log(output);
-                    console.log(output.result.request.result);
                     document.getElementById("legend-card").style.visibility = "visible";
                     document.getElementById("legend-card").style.display = "block";
                     document.getElementById("res-block").innerHTML = "";
@@ -55,30 +54,12 @@ $(document).ready(function () {
                     });
                 });
 
-
-                // fetch('http://34.206.181.247:49153/api/analyze', {
-                //
-                //
-                //     method: "POST",
-                //     body: JSON.stringify({
-                //         project: "gpt-2-small",
-                //         text: selected_text
-                //     }),
-                //     headers: {
-                //         "Content-type": "application/json; charset=UTF-8"
-                //     }
-                // })
-
             } else {
 
             }
         });
 
     });
-
-
-    /************************/
-// MATERIALIZE CSS
 
     $(".dropdown-button").dropdown();
     $('ul.tabs').tabs();
