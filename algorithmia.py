@@ -328,6 +328,30 @@ class BERTLM(AbstractLanguageChecker):
             token = '\u010A' + token
         #
         # # print ('....', token)
+
+        if token.startswith('Ġ'):
+            with_space = True
+            token = token[1:]
+            # print(token)
+        elif token.startswith('â'):
+            token = ' '
+        elif token.startswith('Ċ'):
+            token = ' '
+            with_break = True
+
+        token = '-' if token.startswith('â') else token
+        token = '“' if token.startswith('ľ') else token
+        token = '”' if token.startswith('Ŀ') else token
+        token = "'" if token.startswith('Ļ') else token
+
+        if with_space:
+            token = '' + token
+        if with_break:
+            token = '\n' + token
+        if token == '\\':
+            token = ""
+        if token == 'n':
+            token = ""
         return token
 
 
@@ -338,7 +362,7 @@ def apply(input):
     res = LM().check_probabilities(text, topk=20)
     res['percent'] = 0
     print("Percent Fake:", text)
-    print(res)
-    return {
-        "request": {'text': text, "result": res},
-    }
+    for s in res['bpe_strings']:
+        if s[0] == "Ġ":
+            s[0] = ""
+    return {'text': text, "result": res}
