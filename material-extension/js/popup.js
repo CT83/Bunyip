@@ -28,13 +28,11 @@ $(document).ready(function () {
                 var proxy_url = "https://us-central1-bunyip.cloudfunctions.net/function-1";
                 // var proxy_url = "http://localhost:5000/predict";
                 fetch(proxy_url, {
-                    method: 'post',
-                    mode: 'no-cors',
-                    body: JSON.stringify({text: selected_text})
-                }).then(function (response) {
-                    return response.json();
-                }).then(function (output) {
+                    method: 'POST',
+                    body: JSON.stringify({text: selected_text}),
+                }).then((resp) => resp.json()).then(function (output) {
                     console.log(output);
+
                     document.getElementById("legend-card").style.visibility = "visible";
                     document.getElementById("legend-card").style.display = "block";
                     document.getElementById("res-block").innerHTML = "";
@@ -56,8 +54,8 @@ $(document).ready(function () {
                         document.getElementById("res-block").innerHTML += span_block
                         document.getElementById("res-block").innerHTML.replace("\xc2\xa0", " ")
                     });
-                });
 
+                });
 
             } else {
 
