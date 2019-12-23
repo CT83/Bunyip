@@ -1,5 +1,5 @@
 {
-  "author": "onigetoc",
+  "author": "Rohan Sawant",
   "browser_action": {
     "default_icon": "img/48.png",
     "default_popup": "popup.html"
@@ -12,6 +12,7 @@
   },
   "manifest_version": 2,
   "name": "Bunyip - Detect all the Glitter in the Wild.",
+  "short_name": "Bunyip",
   "permissions": [
     "activeTab"
   ],
