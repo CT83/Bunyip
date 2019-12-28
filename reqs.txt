@@ -1,6 +1,0 @@
-pytorch-pretrained-bert
-torch
-numpy
-flask
-PyYaml
-flask_cors
