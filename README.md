@@ -26,15 +26,15 @@ You can install the extension from Chrome Store! -  [Bunyip - Detect all the Gli
 
 There are about 3 components which make up Bunyip.
 
-1. **Bunyip - Chrome Extension** 
+1. [**Bunyip - Chrome Extension**](https://github.com/CT83/Bunyip/tree/master/chrome-extension) 
 
    This simply sends the selected text to the GCP Cloud Function Proxy which then forwards it to GLTR.
 
-2. **Serverless Proxy running on Google Cloud Platform**
+2. [**Serverless Proxy running on Google Cloud Platform**](https://github.com/CT83/Bunyip/tree/master/proxy)
 
    The Algorithmia REST call contains an API Key which is required to make a request to it, so and the only way I could think of to keep it not hardcoded in the Chrome Extension was to use a proxy hence the workaround.
 
-3. **Modified Version of GLTR -  A tool to detect automatically generated text**
+3. [**Modified Version of GLTR -  A tool to detect automatically generated text**](https://github.com/CT83/Bunyip/tree/master/gpt_detector)
 
    This is deployed on Alogrithmia's Serverless Environment and is interacted with - through a REST API, the GCP Function makes a call to this internally and returns the response to the Chrome Extension.
 
