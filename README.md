@@ -41,11 +41,6 @@ There are about 3 components which make up Bunyip.
 ![bunyip](images/bunyip.png)
 
 
-
-## Tech Stack
-
-
-
 ## How did I go about making it?
 
 ### Step 1 - Analyzing the problem statement at hand
