@@ -2,7 +2,7 @@
 
 [![image-20191228091711520](images/chrome-store.png)](https://chrome.google.com/webstore/detail/bunyip-detect-all-the-gli/liabgjpmjmfddkengbpenbnmmidjddhd)
 
-Bunyip is a Chrome Extension with a Pythonic Serverless Backend, which allows the user to detect AI generated text.
+Bunyip is a Chrome Extension, which allows us to detect AI generated text, it helps users detect fake news articles which might be generated automatically and not by a real human!  
 
 ## You can install the extension from Chrome Store! -  [Bunyip - Detect all the Glitter in the Wild](https://chrome.google.com/webstore/detail/bunyip-detect-all-the-gli/liabgjpmjmfddkengbpenbnmmidjddhd)
 
