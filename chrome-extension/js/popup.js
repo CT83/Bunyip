@@ -22,7 +22,7 @@ $(document).ready(function () {
                 fetch(url)
                     .then((resp) => resp.json()) // Transform the data into json
                     .then(function (data) {
-                        document.getElementById("fake-prob").innerHTML = data.real_probability.toFixed(2);
+                        document.getElementById("fake-prob").innerHTML = data.fake_probability.toFixed(2);
                     });
 
                 var proxy_url = "https://us-central1-bunyip.cloudfunctions.net/function-1";

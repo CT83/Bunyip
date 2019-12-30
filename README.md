@@ -73,13 +73,13 @@ Documentation on how to do this was pretty clear, so I was able to power through
 
 _Deployment is always a doozy_
 
-Yes, one of most understated part of building Bunyip was the overwhelming amounts of extra work which needed to be done to make run in the wild and not just on my laptop. Deploying the entire setup somewhere cheap and scalable was the major challenge.
+Yes, one of the most understated parts of building Bunyip was the overwhelming amounts of extra work that needed to be done to make run in the wild and not just on my laptop. Deploying the entire setup somewhere cheap and scalable was the major challenge.
 
 ### 1. Models cannot be directly deployed onto Serverless functions
 
 I had assumed that I would just be able to directly deploy my entire app to some Serverless Environment and everything would be a breeze, well....
 
-Turns out the PyTorch package which is needed to run the model was over 500 MB big, that meant it was too big for AWS Lambda Functions and GCP Cloud Functions to handle. 
+Turns out the PyTorch package which is needed to run the model was over 500 MB big, which meant it was too big for AWS Lambda Functions and GCP Cloud Functions to handle. 
 
 ![lambda-limit](images/lambda-limit.png)
 
@@ -91,7 +91,7 @@ But, I noticed how I was going to need at least a **t2.large** instance and it w
 
 Then I stumbled across [Algorithmia](https://algorithmia.com/), which allows you to wrap your Python code in a REST complete with Authentication, Hosting, Logging, client side libraries for all major languages and so much more!
 
-With a little bit of refactoring and after a few tries I was able to get by App on it. Next step was simply making POST calls to it from my Chrome Extension.
+With a little bit of refactoring and after a few tries I was able to get by App on it. The next step was simply making POST calls to it from my Chrome Extension.
 
 ### 2. Accessing the Algorithmia API without hardcoding the API Keys in the Chrome Extension
 
