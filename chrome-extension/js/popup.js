@@ -11,8 +11,6 @@ $(document).ready(function () {
                 return;
             }
             selected_text = selection[0];
-            selected_text = selected_text.replace(/[^a-zA-Z0-9 ]/g, "");
-
             if (selected_text.length > 0) {
                 document.getElementById("res-card").style.visibility = "visible";
                 document.getElementById("res-card").style.display = "block";
@@ -25,6 +23,7 @@ $(document).ready(function () {
                         document.getElementById("fake-prob").innerHTML = data.fake_probability.toFixed(2);
                     });
 
+                selected_text = selected_text.replace(/[^a-zA-Z0-9 ]/g, "");
                 var proxy_url = "https://us-central1-bunyip.cloudfunctions.net/function-1";
                 // var proxy_url = "http://localhost:5000/predict";
                 fetch(proxy_url, {
